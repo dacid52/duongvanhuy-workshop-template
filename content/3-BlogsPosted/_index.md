@@ -6,17 +6,10 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### 1. [Blog 1 - SOLVING OVERLOAD ISSUES IN MOVIE TICKET BOOKING PLATFORMS WITH AWS SERVERLESS](3.1-Blog1/)
+This blog introduces the successful application of an Event-Driven Serverless architecture, combined with Amazon SQS and ElastiCache (Redis), to comprehensively resolve bottleneck issues and race conditions (double-booking). This is the core solution that allows the system to automatically and flexibly scale, handling thousands of concurrent requests during blockbuster movie releases while optimizing infrastructure costs.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### 2. [Blog 2 - OPTIMIZING PERFORMANCE AND COMPREHENSIVE SECURITY FOR TICKET BOOKING SYSTEMS WITH AWS](3.2-Blog2/)
+This blog dives into the multi-layered security strategy and system response speed optimization. By leveraging content delivery networks (CloudFront, S3), combined with identity management via Cognito and completely isolating the core infrastructure (RDS, Redis) inside a Private VPC, the platform ensures a seamless experience and absolute safety for customers' transaction data.

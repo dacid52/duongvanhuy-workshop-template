@@ -7,119 +7,99 @@ pre: " <b> 4.1. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Cloud Architect”
 
-### Mục Đích Của Sự Kiện
+### Mục đích của sự kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Tạo ra một sân chơi học thuật về Cloud và thiết kế kiến trúc hệ thống
+- Giúp người tham gia ôn tập kiến thức AWS và tư duy kiến trúc theo hình thức đối kháng
+- Rèn luyện phản xạ, khả năng phân tích câu hỏi và phối hợp nhóm trong thời gian ngắn
+- Tăng cường khả năng đưa ra quyết định khi đứng trước những câu hỏi có mức độ chắc chắn khác nhau
 
-### Danh Sách Diễn Giả
+### Thể lệ và cách tổ chức
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- Sự kiện có **8 đội tham gia**, mỗi đội gồm **5 thành viên**
+- Hai đội thi đấu trực tiếp với nhau và lần lượt trả lời câu hỏi theo từng bộ đề
+- Các bộ đề được sắp xếp từ **dễ đến khó**, và càng vào vòng trong thì độ khó càng tăng
+- Khi đến câu hỏi cuối cùng của bộ đề, đội nào có số điểm cao hơn sẽ giành chiến thắng và đi tiếp vào vòng sau
+- Nội dung câu hỏi tập trung vào **Cloud** và **kiến thức thiết kế kiến trúc hệ thống**
 
-### Nội Dung Nổi Bật
+### Các kỹ năng sử dụng trong game show
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Rủi ro tối thiểu
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- Mỗi đội được sử dụng **1 lần**
+- Phù hợp với những câu trả lời chưa thực sự chắc chắn
+- Nếu trả lời sai sẽ **không bị trừ điểm**
+- Nếu trả lời đúng chỉ nhận **1/2 số điểm** của câu hỏi
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Ngôi sao hi vọng
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Mỗi đội được sử dụng **1 lần**
+- Phù hợp với câu hỏi mà đội cảm thấy tự tin nhất
+- Nếu trả lời đúng sẽ được **nhân đôi số điểm**
+- Nếu trả lời sai sẽ bị **trừ điểm gấp đôi**
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+### Nội dung nổi bật của sự kiện
 
-#### Domain-Driven Design (DDD)
+#### Hình thức thi đấu theo mức độ tăng dần
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+- Các câu hỏi trong từng bộ đề được sắp xếp từ cơ bản đến nâng cao
+- Càng về cuối bộ đề, câu hỏi càng đòi hỏi khả năng phân tích sâu hơn
+- Điều này buộc người chơi phải vừa có kiến thức nền, vừa có khả năng giữ tập trung ở các câu quyết định
 
-#### Event-Driven Architecture
+#### Tính cạnh tranh theo vòng loại
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+- Đội có số điểm cao hơn sẽ đi tiếp vào vòng sau
+- Khi bước vào những vòng trong, áp lực lớn hơn vì câu hỏi khó hơn và thời gian ra quyết định ngắn hơn
+- Yếu tố này làm nổi bật vai trò của chiến thuật nhóm, không chỉ đơn thuần là ghi nhớ kiến thức
 
-#### Compute Evolution
+#### Yếu tố chiến thuật trong sử dụng kỹ năng
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+- Kỹ năng **Rủi ro tối thiểu** giúp giảm thiểu mất điểm khi đội chưa chắc đáp án
+- Kỹ năng **Ngôi sao hi vọng** tạo cơ hội bứt phá điểm số ở những câu đội đánh giá là thế mạnh
+- Qua đó, sự kiện không chỉ kiểm tra kiến thức mà còn kiểm tra khả năng đánh giá rủi ro và lựa chọn thời điểm phù hợp
 
-#### Amazon Q Developer
+### Những gì tôi học được
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+#### Kiến thức chuyên môn
 
-### Những Gì Học Được
+- Củng cố thêm kiến thức về **Cloud** và các chủ đề liên quan đến **thiết kế kiến trúc**
+- Nhận ra rằng việc hiểu khái niệm thôi là chưa đủ, mà còn cần biết cách phân tích nhanh và chọn đáp án chính xác dưới áp lực thời gian
+- Thấy rõ hơn mối liên hệ giữa kiến thức nền tảng và tư duy kiến trúc trong những câu hỏi ở mức độ khó hơn
 
-#### Tư Duy Thiết Kế
+#### Kỹ năng làm việc nhóm
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+- Việc thi theo đội giúp tôi nhận ra tầm quan trọng của **phối hợp nhóm**
+- Mỗi thành viên có thể mạnh ở một mảng khác nhau, nên việc lắng nghe và tổng hợp ý kiến rất quan trọng
+- Trong những câu khó, đội cần thống nhất nhanh để không bỏ lỡ thời gian trả lời
 
-#### Kiến Trúc Kỹ Thuật
+#### Kỹ năng tư duy và ra quyết định
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+- Học được cách cân nhắc giữa **an toàn** và **mạo hiểm** khi sử dụng các kỹ năng trong game show
+- Rèn luyện khả năng đánh giá mức độ chắc chắn của đáp án thay vì trả lời theo cảm tính
+- Nhận ra rằng trong các tình huống áp lực, quyết định đúng thời điểm có thể ảnh hưởng lớn đến kết quả chung của đội
 
-#### Chiến Lược Hiện Đại Hóa
+### Ứng dụng vào quá trình học và thực tập
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- Giúp tôi có thêm động lực để ôn tập lại các kiến thức Cloud theo hướng hệ thống hơn
+- Tạo thói quen không chỉ học khái niệm riêng lẻ mà còn liên kết chúng với các bài toán kiến trúc thực tế
+- Hỗ trợ tôi cải thiện khả năng trao đổi ý tưởng kỹ thuật với người khác trong môi trường làm việc nhóm
+- Giúp tôi tự tin hơn khi tiếp cận những câu hỏi hoặc tình huống cần phản xạ nhanh
 
-### Ứng Dụng Vào Công Việc
+### Trải nghiệm khi tham gia sự kiện
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Tham gia sự kiện **Cloud Architect** là một trải nghiệm rất thú vị vì đây không chỉ là một buổi thi kiến thức đơn thuần mà còn là một hoạt động đòi hỏi sự tập trung, phối hợp và chiến thuật. Trong quá trình tham gia, tôi cảm nhận rõ không khí cạnh tranh giữa các đội khi mỗi lượt trả lời đều ảnh hưởng trực tiếp đến cơ hội đi tiếp.
 
-### Trải nghiệm trong event
+Điều tôi thấy ấn tượng nhất là cách chương trình thiết kế câu hỏi theo mức độ tăng dần. Ở những câu đầu, đội có thể dựa vào kiến thức nền tảng để trả lời tương đối nhanh. Tuy nhiên, càng về cuối thì câu hỏi càng khó hơn, buộc cả đội phải phân tích kỹ hơn và thống nhất đáp án trong thời gian ngắn. Điều này làm cho trải nghiệm tham gia trở nên hấp dẫn và thực tế hơn rất nhiều.
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+Một điểm nổi bật khác là hai kỹ năng hỗ trợ của game show. Tôi nhận thấy việc sử dụng **Rủi ro tối thiểu** hay **Ngôi sao hi vọng** không chỉ phụ thuộc vào kiến thức, mà còn phụ thuộc vào khả năng đọc tình huống và đánh giá mức độ chắc chắn của đội tại từng thời điểm. Chính yếu tố này khiến cuộc thi mang tính chiến thuật rõ rệt, thay vì chỉ là trả lời câu hỏi theo kiểu ghi nhớ máy móc.
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+Thông qua event này, tôi không chỉ ôn lại kiến thức Cloud mà còn học thêm về cách làm việc nhóm dưới áp lực, cách lắng nghe ý kiến đồng đội và cách đưa ra quyết định nhanh nhưng vẫn hợp lý. Đây là một trải nghiệm có giá trị, giúp tôi nhìn rõ hơn điểm mạnh và những kỹ năng mình cần tiếp tục cải thiện trong quá trình học tập cũng như thực tập.
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
+### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+
+> Tổng thể, sự kiện đã mang lại cho tôi một trải nghiệm vừa học thuật vừa thực tế, giúp tôi củng cố kiến thức Cloud, rèn luyện tư duy kiến trúc và nâng cao kỹ năng phối hợp trong môi trường làm việc nhóm.

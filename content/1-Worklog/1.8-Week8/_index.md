@@ -1,57 +1,26 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
+date: 2026-05-11
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 8 Objectives:
+* Continue practical work with Amazon S3 for storage management on AWS.
+* Review access policies for cloud data and the workflow for static website deployment.
+* Explore Amazon CloudFront and study backup, synchronization, and recovery support features.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to be implemented:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Resources |
+| :--- | :--- | :--- | :--- | :--- |
+| Mon | - Practice managing storage resources with Amazon S3.<br>- Review the main operations involved in maintaining objects and buckets on AWS. | 08/06/2026 | 08/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Review access control policies for S3 data.<br>- Examine how permission settings affect secure use of cloud storage. | 09/06/2026 | 09/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Revisit the deployment flow for a static website hosted on Amazon S3.<br>- Check the main hosting settings needed for website availability. | 10/06/2026 | 10/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Explore Amazon CloudFront as a content delivery option.<br>- Review how CDN distribution improves application access speed. | 11/06/2026 | 11/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Study AWS features that support backup, synchronization, and data recovery.<br>- Summarize how these features complement storage operations on AWS. | 12/06/2026 | 12/06/2026 | https://cloudjourney.awsstudygroup.com/ |
 
-
-### Week 8 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Results achieved:
+* Reinforced hands-on familiarity with Amazon S3 storage management and access control.
+* Reviewed the core static website hosting workflow and the role of CloudFront in content delivery.
+* Built a broader understanding of supporting features for backup, synchronization, and recovery.

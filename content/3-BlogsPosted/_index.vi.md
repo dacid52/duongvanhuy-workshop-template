@@ -6,17 +6,11 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
 
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### 1. [Blog 1 - GIẢI QUYẾT BÀI TOÁN QUÁ TẢI TRONG NỀN TẢNG ĐẶT VÉ XEM PHIM BẰNG AWS SERVERLESS](3.1-Blog1/)
+Blog này giới thiệu việc áp dụng thành công kiến trúc Event-Driven Serverless, kết hợp cùng Amazon SQS và ElastiCache (Redis) để giải quyết triệt để bài toán nghẽn cổ chai và lỗi trùng ghế. Đây là giải pháp cốt lõi giúp hệ thống tự động mở rộng linh hoạt, xử lý hàng ngàn request đồng thời trong các đợt mở bán phim bom tấn mà vẫn tối ưu chi phí hạ tầng.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### 2. [Blog 2 - TỐI ƯU HIỆU SUẤT VÀ BẢO MẬT TOÀN DIỆN CHO HỆ THỐNG ĐẶT VÉ VỚI AWS](3.2-Blog2/)
+Blog này đi sâu vào chiến lược bảo mật nhiều lớp và tối ưu tốc độ phản hồi của hệ thống. Bằng cách tận dụng mạng lưới phân phối nội dung (CloudFront, S3), kết hợp quản lý danh tính qua Cognito và cô lập hoàn toàn hạ tầng lõi (RDS, Redis) bên trong Private VPC, nền tảng đảm bảo mang lại trải nghiệm mượt mà và an toàn tuyệt đối cho dữ liệu giao dịch của khách hàng.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.

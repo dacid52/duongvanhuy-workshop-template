@@ -1,47 +1,38 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-05-11
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+# Hệ thống Đặt vé Xem phim Trực tuyến
+## Giải pháp AWS Serverless cho hệ thống đặt vé thời gian thực
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 1. Tóm tắt điều hành
+Nền tảng Đặt vé xem phim được thiết kế để giải quyết bài toán đặt vé quy mô lớn, hỗ trợ xử lý hàng ngàn request đồng thời trong các đợt mở bán phim bom tấn. Hệ thống sử dụng kiến trúc Event-Driven, tận dụng các dịch vụ Serverless của AWS để đảm bảo tính sẵn sàng cao, khả năng mở rộng linh hoạt và trải nghiệm thanh toán mượt mà cho người dùng. 
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+### 2. Tuyên bố vấn đề
+* **Vấn đề hiện tại:** Các hệ thống đặt vé truyền thống thường gặp tình trạng nghẽn cổ chai khi lượng truy cập tăng đột biến, gây ra lỗi trùng ghế (race condition), thời gian phản hồi chậm hoặc sập hệ thống trong giờ cao điểm.
+* **Giải pháp:** Sử dụng kiến trúc Serverless với Amazon API Gateway và AWS Lambda để xử lý logic nghiệp vụ. Dữ liệu được bảo vệ và đồng bộ hóa tức thì nhờ Amazon ElastiCache (Redis) để giữ chỗ tạm thời (Seat Locking) và Amazon SQS để quản lý hàng đợi đơn hàng bất đồng bộ.
+* **Lợi ích (ROI):** Giảm thiểu chi phí hạ tầng nhờ mô hình "Pay-as-you-go". Hệ thống tự động mở rộng theo nhu cầu thực tế. Độ tin cậy cao giúp tăng tỷ lệ chuyển đổi vé thành công và nâng cao sự hài lòng của khách hàng.
+ 
+### 3. Kiến trúc giải pháp
+Nền tảng áp dụng mô hình Serverless hoàn toàn để quản lý quy trình từ chọn ghế, thanh toán đến xuất vé.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+![Movie Ticket Booking Platform](/images/2-Proposal/edge_architecture.jpeg)
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+![Movie Ticket Booking Platform](/images/2-Proposal/platform_architecture.jpeg)
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
-
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
-
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+**Dịch vụ AWS sử dụng:**
+* **API Gateway:** Tiếp nhận yêu cầu đặt vé từ web/mobile.
+* **AWS Lambda:** Xử lý logic đặt ghế, thanh toán và gửi xác nhận.
+* **Amazon ElastiCache (Redis):** Xử lý "khóa ghế" thời gian thực, ngăn chặn trùng ghế.
+* **Amazon SQS:** Hàng đợi tin nhắn xử lý đơn đặt vé, đảm bảo hệ thống không bị quá tải.
+* **Amazon RDS (Multi-AZ):** Lưu trữ dữ liệu người dùng, hóa đơn và lịch chiếu.
+* **Amazon Cognito:** Quản lý đăng nhập và bảo mật người dùng.
+* **Amazon SNS:** Thông báo xác nhận vé thành công qua Email/SMS.  
 
 *Thiết kế thành phần*  
 - *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
@@ -51,58 +42,53 @@ Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu
 - *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
 - *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 4. Triển khai kỹ thuật
+* **Các giai đoạn:**
+    1. Thiết kế mô hình Database (Sơ đồ ghế, lịch chiếu) và kiến trúc Serverless.
+    2. Phát triển các API nghiệp vụ (Authentication, Booking, Payment, Ticket).
+    3. Tích hợp Redis để xử lý logic khóa ghế và SQS để xử lý đơn hàng.
+    4. Kiểm thử tải (Load Testing) và triển khai trên môi trường AWS.
+* **Yêu cầu:** * Sử dụng AWS CDK để tự động hóa triển khai hạ tầng.
+    * Thiết lập Dead Letter Queue (DLQ) cho SQS để xử lý các đơn hàng lỗi.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
-
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+### 5. Lộ trình triển khai
+* **Tháng 1:** Phân tích yêu cầu, thiết kế kiến trúc và sơ đồ dữ liệu.
+* **Tháng 2:** Lập trình Backend (Lambda) và tích hợp Redis/SQS.
+* **Tháng 3:** Phát triển Frontend (Amplify/Next.js) và tích hợp hệ thống thanh toán.
+* **Tháng 4:** Kiểm thử (UAT), tối ưu hiệu năng và vận hành. 
 
 ### 6. Ước tính ngân sách  
 Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+### 6. Ước tính ngân sách
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+Chi phí dưới đây được ước tính cho giai đoạn khởi tạo và vận hành nền tảng với quy mô giả định từ 10.000 đến 50.000 người dùng hoạt động mỗi tháng (MAU).
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+| Dịch vụ AWS | Mục đích sử dụng | Ước tính (USD/tháng) |
+| :--- | :--- | :--- |
+| **Amazon Cognito** | Quản lý người dùng (Đăng ký/Đăng nhập) | 0.00 USD (Free Tier) |
+| **API Gateway** | Điều phối request từ Frontend | ~1.50 USD |
+| **AWS Lambda** | Xử lý logic đặt vé, thanh toán, xuất vé | ~1.00 USD |
+| **S3 & CloudFront** | Lưu trữ giao diện & CDN phân phối | ~5.00 USD |
+| **Amazon RDS (Multi-AZ)** | CSDL quan hệ (User, Đơn hàng, Lịch chiếu) | ~35.00 - 45.00 USD |
+| **ElastiCache (Redis)** | Khóa ghế thời gian thực (Seat Locking) | ~15.00 - 20.00 USD |
+| **SQS & SNS** | Hàng đợi & Thông báo xác nhận vé | ~0.50 USD |
+| **CloudWatch & X-Ray** | Giám sát & Truy vết hệ thống | ~2.00 USD |
+| **TỔNG CỘNG** | | **~55.00 - 75.00 USD/tháng** |
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+**Ghi chú tối ưu chi phí:**
+* **Chính sách Free Tier:** Trong 12 tháng đầu tiên, nhóm được hưởng gói **AWS Free Tier**, giúp giảm đáng kể chi phí cho các dịch vụ cốt lõi như Lambda, S3, và RDS (tùy thuộc vào hạn mức sử dụng), đưa chi phí thực tế về gần mức **0 USD**.
+* **Giải pháp tối ưu dài hạn:** * Sử dụng **Aurora Serverless v2** cho cơ sở dữ liệu để hệ thống tự động co giãn theo lưu lượng truy cập, thay vì duy trì instance cố định.
+    * Áp dụng các gói **Reserved Instances** sau khi hệ thống vận hành ổn định để tiết kiệm 30-40% chi phí duy trì.
+* **Mô hình tài chính:** Đây là kiến trúc **Pay-as-you-go** (trả theo mức độ sử dụng). Nếu lưu lượng truy cập thấp, chi phí sẽ tự động giảm xuống, tối ưu hóa lợi nhuận cho giai đoạn khởi nghiệp. 
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 7. Đánh giá rủi ro
+* **Quá tải hệ thống:** Giảm thiểu bằng SQS để điều tiết traffic.
+* **Trùng ghế:** Giải quyết bằng cơ chế Locking của Redis.
+* **Lỗi thanh toán:** Sử dụng DLQ để cô lập đơn hàng và cảnh báo qua SNS cho Admin. 
+
+### 8. Kết quả kỳ vọng
+* **Hiệu năng:** Xử lý hàng ngàn giao dịch đặt vé mỗi phút.
+* **Độ tin cậy:** Đảm bảo 100% dữ liệu ghế chính xác, không đặt trùng.
+* **Khả năng mở rộng:** Tự động mở rộng khi người dùng tăng đột biến.

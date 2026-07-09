@@ -1,115 +1,88 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-05-11
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Movie Ticket Booking Platform
+## AWS Serverless Solution for Real-time Booking Systems
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The Movie Ticket Booking Platform is designed to handle large-scale ticket sales, supporting thousands of concurrent requests during blockbuster movie releases. The system utilizes an Event-Driven architecture, leveraging AWS Serverless services to ensure high availability, flexible scalability, and a seamless payment experience for users.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
-
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
-
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+* **Current Challenges:** Traditional booking systems often face bottlenecks during traffic spikes, leading to race conditions (double-booking), high latency, or system crashes during peak hours.
+* **Proposed Solution:** Implement a Serverless architecture using Amazon API Gateway and AWS Lambda to handle business logic. Data integrity and synchronization are ensured through Amazon ElastiCache (Redis) for real-time Seat Locking and Amazon SQS for asynchronous order queueing.
+* **Benefits (ROI):** Reduced infrastructure costs via a "Pay-as-you-go" model. The system automatically scales to actual demand without maintaining physical servers. High reliability increases successful ticket conversion rates and enhances customer satisfaction.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The platform adopts a fully Serverless model to manage the entire process from seat selection to payment and ticket issuance.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![Movie Ticket Booking Platform](/images/2-Proposal/edge_architecture.jpeg)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![Movie Ticket Booking Platform](/images/2-Proposal/platform_architecture.jpeg)
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+**AWS Services Used:**
+* **API Gateway:** Entry point for web/mobile booking requests.
+* **AWS Lambda:** Handles business logic for seat booking, payment, and confirmation.
+* **Amazon ElastiCache (Redis):** Manages real-time seat locking to prevent double-booking.
+* **Amazon SQS:** Queues booking requests to prevent system overload.
+* **Amazon RDS (Multi-AZ):** Stores user data, invoices, and screening schedules.
+* **Amazon Cognito:** Manages user authentication and security.
+* **Amazon SNS:** Sends confirmation notifications via Email/SMS.
+
+**Component Design:**
+* **Web Client (Next.js):** Acts as a Single Page Application (SPA), hosted on **Amazon S3** and distributed via **CloudFront** for low latency.
+* **API Layer:** **Cognito** handles authentication/JWT tokens; **API Gateway** acts as the secure gateway.
+* **Logic Layer:** **Lambda** functions perform booking, payment, and ticketing services.
+* **Storage & Cache:** **Redis** for distributed high-speed seat locking; **RDS** for relational data with automated failover.
+* **Async Processing:** **SQS** regulates traffic; **SNS** delivers immediate notifications.
+* **Observability:** **CloudWatch** and **X-Ray** for logging and tracing bottlenecks.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+* **Phases:**
+    1. Database modeling (Seat maps, schedules) and Serverless architecture design.
+    2. Development of business APIs (Authentication, Booking, Payment, Ticket).
+    3. Integration of Redis for seat locking and SQS for order processing.
+    4. Load testing and deployment on the AWS environment.
+* **Requirements:** * Use **AWS CDK** for Infrastructure as Code (IaC).
+    * Configure **Dead Letter Queues (DLQ)** for SQS to handle failed orders.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
-
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+### 5. Implementation Roadmap
+* **Month 1:** Requirement analysis, architecture design, and data modeling.
+* **Month 2:** Backend development (Lambda) and Redis/SQS integration.
+* **Month 3:** Frontend development (Amplify/Next.js) and payment system integration.
+* **Month 4:** User Acceptance Testing (UAT), performance optimization, and go-live.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+Estimated monthly infrastructure costs for a startup-scale platform (10k - 50k MAU):
 
-Total: $0.7/month, $8.40/12 months
+| AWS Service | Purpose | Estimated (USD/Month) |
+| :--- | :--- | :--- |
+| **Amazon Cognito** | User Management | 0.00 USD (Free Tier) |
+| **API Gateway** | Request Dispatching | ~1.50 USD |
+| **AWS Lambda** | Logic Processing | ~1.00 USD |
+| **S3 & CloudFront** | Static Assets & CDN | ~5.00 USD |
+| **Amazon RDS (Multi-AZ)** | Relational Database | ~35.00 - 45.00 USD |
+| **ElastiCache (Redis)** | Seat Locking Cache | ~15.00 - 20.00 USD |
+| **SQS & SNS** | Queues & Notifications | ~0.50 USD |
+| **CloudWatch & X-Ray** | Monitoring & Tracing | ~2.00 USD |
+| **TOTAL** | | **~55.00 - 75.00 USD/Month** |
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+**Cost Optimization Notes:**
+* **Free Tier:** Many core services are covered under the **AWS Free Tier** for the first 12 months, significantly reducing real-world costs.
+* **Long-term Optimization:** Transition to **Aurora Serverless v2** for auto-scaling database capacity based on demand. Utilize **Reserved Instances** once traffic patterns stabilize to save 30-40%.
+* **Financial Model:** The **Pay-as-you-go** model ensures costs scale down during low-traffic periods.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
-
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+* **System Overload:** Mitigated by SQS traffic regulation.
+* **Double-Booking:** Resolved by Redis seat locking mechanism.
+* **Payment Failures:** Isolated via DLQ and alerted to admins via SNS.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+* **Performance:** Processing thousands of booking transactions per minute.
+* **Reliability:** 100% data accuracy for seat allocation.
+* **Scalability:** Auto-scaling to meet sudden traffic spikes.

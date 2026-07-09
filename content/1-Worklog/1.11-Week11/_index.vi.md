@@ -1,59 +1,27 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
+date: 2026-05-11
 weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 11:
+* Triển khai môi trường ứng dụng trên AWS.
+* Cấu hình các thành phần máy chủ, cơ sở dữ liệu và lưu trữ cần thiết cho hệ thống.
+* Kiểm thử tích hợp, xử lý lỗi phát sinh, và rà soát mức độ sẵn sàng về cấu hình cũng như bảo mật.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Các công việc cần triển khai:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :--- | :--- | :--- | :--- | :--- |
+| 2 | - Bắt đầu triển khai môi trường ứng dụng trên AWS.<br>- Chuẩn bị các thành phần chính cần dùng cho giai đoạn thực thi. | 29/06/2026 | 29/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Cấu hình lớp máy chủ và rà soát các thiết lập runtime cần thiết cho môi trường ứng dụng. | 30/06/2026 | 30/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Cấu hình dịch vụ cơ sở dữ liệu và lưu trữ được sử dụng trong hệ thống.<br>- Rà soát các phụ thuộc giữa các thành phần này với lớp máy chủ. | 01/07/2026 | 01/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Thực hiện kiểm thử tích hợp giữa các thành phần đã triển khai.<br>- Xác định và xử lý các lỗi phát sinh trong quá trình triển khai. | 02/07/2026 | 02/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Rà soát các cấu hình để bảo đảm tính ổn định và yêu cầu bảo mật.<br>- Tổng hợp trạng thái triển khai và các điều chỉnh đã hoàn thành trong tuần. | 03/07/2026 | 03/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 
-
-### Kết quả đạt được tuần 11:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+### Kết quả đạt được:
+* Hoàn thành các bước triển khai chính cho môi trường ứng dụng trên AWS.
+* Rà soát và đồng bộ được cấu hình giữa lớp máy chủ, cơ sở dữ liệu và lưu trữ để phục vụ tích hợp.
+* Xử lý các lỗi phát sinh trong quá trình triển khai và cải thiện mức độ sẵn sàng thông qua rà soát cấu hình, bảo mật.

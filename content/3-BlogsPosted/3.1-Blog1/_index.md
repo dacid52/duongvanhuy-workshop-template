@@ -5,27 +5,18 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# SOLVING OVERLOAD ISSUES IN MOVIE TICKET BOOKING PLATFORMS WITH AWS SERVERLESS
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+The online Movie Ticket Booking Platform has successfully adopted an Event-Driven Serverless architecture, allowing the system to automatically and flexibly scale to handle thousands of concurrent requests. This is a crucial step forward in comprehensively resolving the bottlenecks and race conditions (double-booking) commonly encountered during blockbuster ticket releases.
 
-Key points to know:
+Key takeaways:
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* The architecture integrates **Amazon ElastiCache (Redis)** to implement real-time "Seat Locking", absolutely preventing two customers from purchasing the same seat.
+* The **Asynchronous processing** mechanism is deployed via **Amazon SQS**, acting as a secure buffer to store pending orders awaiting payment.
+* Integrates **AWS Lambda** as background Workers to gradually poll orders from SQS for processing and record them into the **Amazon RDS** database, protecting the DB from being overloaded.
+* The ticket confirmation notification process is completely decoupled from the main user flow and triggered via **Amazon SNS**, significantly reducing wait times on the web interface.
+* The **Pay-as-you-go** financial model automatically scales down resources when there are no high-demand screenings, optimizing infrastructure costs compared to maintaining physical servers 24/7.
+* Centralized access security management via **Amazon API Gateway** and **Cognito**, ensuring data safety from the frontend (Next.js on CloudFront) to internal backend services.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
-
-...Image...
-
-...Link...
-
-...Guide...
+This architecture is particularly useful when cinemas face spiky traffic during prime time, ensuring the system remains stable, maintaining high successful transaction rates, and elevating the audience experience.
