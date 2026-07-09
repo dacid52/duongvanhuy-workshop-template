@@ -21,9 +21,9 @@ Nền tảng Đặt vé xem phim được thiết kế để giải quyết bài
 ### 3. Kiến trúc giải pháp
 Nền tảng áp dụng mô hình Serverless hoàn toàn để quản lý quy trình từ chọn ghế, thanh toán đến xuất vé.
 
-![Movie Ticket Booking Platform](/images/2-Proposal/edge_architecture.jpeg)
+![Movie Ticket Booking Platform](images/2-Proposal/edge_architecture.jpeg)
 
-![Movie Ticket Booking Platform](/images/2-Proposal/platform_architecture.jpeg)
+![Movie Ticket Booking Platform](images/2-Proposal/platform_architecture.jpeg)
 
 **Dịch vụ AWS sử dụng:**
 * **API Gateway:** Tiếp nhận yêu cầu đặt vé từ web/mobile.

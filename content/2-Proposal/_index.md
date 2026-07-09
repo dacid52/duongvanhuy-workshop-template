@@ -19,9 +19,9 @@ The Movie Ticket Booking Platform is designed to handle large-scale ticket sales
 ### 3. Solution Architecture
 The platform adopts a fully Serverless model to manage the entire process from seat selection to payment and ticket issuance.
 
-![Movie Ticket Booking Platform](/images/2-Proposal/edge_architecture.jpeg)
+![Movie Ticket Booking Platform](images/2-Proposal/edge_architecture.jpeg)
 
-![Movie Ticket Booking Platform](/images/2-Proposal/platform_architecture.jpeg)
+![Movie Ticket Booking Platform](images/2-Proposal/platform_architecture.jpeg)
 
 
 **AWS Services Used:**
