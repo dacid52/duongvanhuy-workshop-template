@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 11/05/2026 đến ngày 11/08/2026
 
-![Ảnh đại diện của bạn](/images/duongvanhuy.jpg)
+<img src="./images/duongvanhuy.jpg" alt="Ảnh đại diện của bạn" style="width: 33%; max-width: 220px; height: auto;">
 
 ### Nội dung báo cáo
 

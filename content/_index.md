@@ -29,7 +29,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 11/05/2026 to 11/08/2026
 
-![Your profile picture](/images/duongvanhuy.jpg)
+<img src="./images/duongvanhuy.jpg" alt="Your profile picture" style="width: 33%; max-width: 220px; height: auto;">
 
 ### Report Content
 
