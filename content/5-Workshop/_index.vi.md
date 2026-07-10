@@ -6,27 +6,57 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Xây dựng Movie Ticket Booking Platform trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Workshop này mô tả quy trình thiết kế, triển khai và vận hành **Movie Ticket Booking Platform** — nền tảng đặt vé xem phim serverless trên AWS, sử dụng **AWS Amplify Gen 2**, **Amazon Cognito**, **API Gateway**, **AWS Lambda**, **Amazon DynamoDB**, **Amazon SQS** và **AWS Amplify Hosting** (phía sau là **Amazon CloudFront**).
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Hệ thống được bảo vệ bởi nhiều lớp: **AWS WAF** gắn **CloudFront**, xác thực **Cognito**, HTTPS end-to-end và giám sát **CloudWatch RUM**.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+**Liên kết tham khảo:**
+
+- **Ứng dụng live:** https://main.d2zv6ka00i1nyo.amplifyapp.com
+- **Mã nguồn (public):** https://github.com/DHgLang/Movie-Ticket-Booking-Platform
+
+#### Mục tiêu workshop
+
+- Triển khai end-to-end một nền tảng đặt vé phim có khả năng **mở rộng theo tải** (serverless).
+- Áp dụng mô hình **đồng bộ + bất đồng bộ**: khóa ghế nhanh qua API, xử lý đơn hàng qua hàng đợi SQS.
+- Tích hợp **bảo mật đa lớp**: WAF trên CloudFront, Cognito, HTTPS, giám sát CloudWatch.
+- Kết nối **thanh toán VNPay sandbox** và **bảng quản trị Admin**.
+
+#### Các dịch vụ AWS sử dụng
+
+| Dịch vụ | Mục đích |
+| --- | --- |
+| **AWS Amplify Gen 2 / Hosting** | Định nghĩa backend (CDK) và deploy frontend React |
+| **Amazon CloudFront** + **AWS WAF** | CDN + lọc bot, SQLi, XSS, rate limit |
+| **Amazon Cognito** | Đăng ký / đăng nhập; nhóm `admin` |
+| **Amazon API Gateway (HTTP API)** | Cổng REST: phim, suất chiếu, đặt vé, thanh toán |
+| **AWS Lambda** | `booking-api` (đồng bộ) + `booking-worker` (SQS) |
+| **Amazon DynamoDB** | Phim, suất chiếu, ghế, booking, vé |
+| **Amazon SQS + DLQ** | Hàng đợi đơn hàng khi traffic tăng đột biến |
+| **Amazon S3** | Poster phim, asset tĩnh |
+| **CloudWatch RUM** | Giám sát hiệu năng & lỗi phía trình duyệt |
+
+#### Sơ đồ Architecture
+
+![Sơ đồ Architecture](/images/5-Workshop/architecture.png)
+
+#### Luồng đặt vé (tóm tắt)
+
+1. Người dùng duyệt phim → chọn suất → chọn ghế trên seat map.
+2. **POST lock seats** — Lambda ghi trạng thái ghế vào DynamoDB (TTL lock).
+3. **POST booking** — tạo đơn, đẩy message vào **SQS**.
+4. **Worker Lambda** xử lý queue → cập nhật booking → phát hành vé.
+5. (Tuỳ chọn) **VNPay sandbox** — redirect thanh toán → confirm → hoàn tất vé.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Chuẩn bị môi trường](5.1-Prerequisite/)
+2. [Triển khai Backend (Amplify Sandbox)](5.2-Backend/)
+3. [Frontend & Deploy Hosting](5.3-Frontend/)
+4. [Demo ứng dụng](5.4-Demo/)
+5. [Dọn dẹp tài nguyên](5.5-Cleanup/)
+6. [Tổng quan & chi phí](5.6-Cost/)

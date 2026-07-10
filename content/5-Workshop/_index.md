@@ -5,26 +5,58 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Building Movie Ticket Booking Platform on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop documents how to design, deploy, and operate **Movie Ticket Booking Platform** — a serverless movie ticket booking system on AWS using **AWS Amplify Gen 2**, **Amazon Cognito**, **API Gateway**, **AWS Lambda**, **Amazon DynamoDB**, **Amazon SQS**, and **AWS Amplify Hosting** (backed by **Amazon CloudFront**).
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The system is protected by multiple layers: **AWS WAF** on **CloudFront**, **Cognito** authentication, HTTPS end-to-end, and **CloudWatch RUM** monitoring.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+**Reference links:**
 
-#### Content
+- **Live app:** https://main.d2zv6ka00i1nyo.amplifyapp.com
+- **Source code (public):** https://github.com/DHgLang/Movie-Ticket-Booking-Platform
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+#### Workshop goals
+
+- Deploy an end-to-end **scalable** movie ticket booking platform (serverless).
+- Apply **sync + async** patterns: fast seat locking via API, order processing via SQS queue.
+- Integrate **multi-layer security**: WAF on CloudFront, Cognito, HTTPS, CloudWatch monitoring.
+- Connect **VNPay sandbox** payment and an **Admin** panel.
+
+#### AWS services used
+
+| Service | Purpose |
+| --- | --- |
+| **AWS Amplify Gen 2 / Hosting** | Backend definition (CDK) and React frontend deploy |
+| **Amazon CloudFront** + **AWS WAF** | CDN + bot / SQLi / XSS / rate-limit filtering |
+| **Amazon Cognito** | Sign-up / sign-in; `admin` group |
+| **Amazon API Gateway (HTTP API)** | REST entry: movies, showtimes, booking, payment |
+| **AWS Lambda** | `booking-api` (sync) + `booking-worker` (SQS) |
+| **Amazon DynamoDB** | Movies, showtimes, seats, bookings, tickets |
+| **Amazon SQS + DLQ** | Order queue for traffic spikes |
+| **Amazon S3** | Movie posters, static assets |
+| **CloudWatch RUM** | Browser performance & error monitoring |
+
+#### Architecture diagram
+
+![Architecture diagram](/images/5-Workshop/architecture.png)
+
+#### Booking flow (summary)
+
+1. User browses movies → selects showtime → picks seats on seat map.
+2. **POST lock seats** — Lambda writes seat state to DynamoDB (TTL lock).
+3. **POST booking** — creates order, enqueues message to **SQS**.
+4. **Worker Lambda** processes queue → updates booking → issues ticket.
+5. (Optional) **VNPay sandbox** — payment redirect → confirm → ticket complete.
+
+#### Contents
+
+1. [Environment Setup](5.1-Prerequisite/)
+2. [Backend Deployment (Amplify Sandbox)](5.2-Backend/)
+3. [Frontend & Hosting Deploy](5.3-Frontend/)
+4. [Application Demo](5.4-Demo/)
+5. [Resource Cleanup](5.5-Cleanup/)
+6. [Overview & Cost](5.6-Cost/)
