@@ -11,7 +11,7 @@ chapter: false
 
 
 ### Student Information:
-&emsp; **Full Name:** DƯƠNG VĂN HUY
+&emsp; **Full Name:** DUONG VAN HUY
 
 &emsp; **Phone Number:** 0792967973
 
@@ -29,7 +29,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 11/05/2026 to 11/08/2026
 
-<img src="./images/duongvanhuy.jpg" alt="Your profile picture" style="width: 33%; max-width: 220px; height: auto;">
+{{< profile-avatar alt="Your profile picture" >}}
 
 ### Report Content
 
