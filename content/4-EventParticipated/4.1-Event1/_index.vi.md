@@ -62,7 +62,7 @@ pre: " <b> 4.1. </b> "
 - Kỹ năng **Ngôi sao hi vọng** tạo cơ hội bứt phá điểm số ở những câu đội đánh giá là thế mạnh
 - Qua đó, sự kiện không chỉ kiểm tra kiến thức mà còn kiểm tra khả năng đánh giá rủi ro và lựa chọn thời điểm phù hợp
 
-### Những gì tôi học được
+### Những gì em học được
 
 #### Kiến thức chuyên môn
 
@@ -72,7 +72,7 @@ pre: " <b> 4.1. </b> "
 
 #### Kỹ năng làm việc nhóm
 
-- Việc thi theo đội giúp tôi nhận ra tầm quan trọng của **phối hợp nhóm**
+- Việc thi theo đội giúp em nhận ra tầm quan trọng của **phối hợp nhóm**
 - Mỗi thành viên có thể mạnh ở một mảng khác nhau, nên việc lắng nghe và tổng hợp ý kiến rất quan trọng
 - Trong những câu khó, đội cần thống nhất nhanh để không bỏ lỡ thời gian trả lời
 
@@ -84,22 +84,22 @@ pre: " <b> 4.1. </b> "
 
 ### Ứng dụng vào quá trình học và thực tập
 
-- Giúp tôi có thêm động lực để ôn tập lại các kiến thức Cloud theo hướng hệ thống hơn
+- Giúp em có thêm động lực để ôn tập lại các kiến thức Cloud theo hướng hệ thống hơn
 - Tạo thói quen không chỉ học khái niệm riêng lẻ mà còn liên kết chúng với các bài toán kiến trúc thực tế
-- Hỗ trợ tôi cải thiện khả năng trao đổi ý tưởng kỹ thuật với người khác trong môi trường làm việc nhóm
-- Giúp tôi tự tin hơn khi tiếp cận những câu hỏi hoặc tình huống cần phản xạ nhanh
+- Hỗ trợ em cải thiện khả năng trao đổi ý tưởng kỹ thuật với người khác trong môi trường làm việc nhóm
+- Giúp em tự tin hơn khi tiếp cận những câu hỏi hoặc tình huống cần phản xạ nhanh
 
 ### Trải nghiệm khi tham gia sự kiện
 
-Tham gia sự kiện **Cloud Architect** là một trải nghiệm rất thú vị vì đây không chỉ là một buổi thi kiến thức đơn thuần mà còn là một hoạt động đòi hỏi sự tập trung, phối hợp và chiến thuật. Trong quá trình tham gia, tôi cảm nhận rõ không khí cạnh tranh giữa các đội khi mỗi lượt trả lời đều ảnh hưởng trực tiếp đến cơ hội đi tiếp.
+Tham gia sự kiện **Cloud Architect** là một trải nghiệm rất thú vị vì đây không chỉ là một buổi thi kiến thức đơn thuần mà còn là một hoạt động đòi hỏi sự tập trung, phối hợp và chiến thuật. Trong quá trình tham gia, em cảm nhận rõ không khí cạnh tranh giữa các đội khi mỗi lượt trả lời đều ảnh hưởng trực tiếp đến cơ hội đi tiếp.
 
-Điều tôi thấy ấn tượng nhất là cách chương trình thiết kế câu hỏi theo mức độ tăng dần. Ở những câu đầu, đội có thể dựa vào kiến thức nền tảng để trả lời tương đối nhanh. Tuy nhiên, càng về cuối thì câu hỏi càng khó hơn, buộc cả đội phải phân tích kỹ hơn và thống nhất đáp án trong thời gian ngắn. Điều này làm cho trải nghiệm tham gia trở nên hấp dẫn và thực tế hơn rất nhiều.
+Điều em thấy ấn tượng nhất là cách chương trình thiết kế câu hỏi theo mức độ tăng dần. Ở những câu đầu, đội có thể dựa vào kiến thức nền tảng để trả lời tương đối nhanh. Tuy nhiên, càng về cuối thì câu hỏi càng khó hơn, buộc cả đội phải phân tích kỹ hơn và thống nhất đáp án trong thời gian ngắn. Điều này làm cho trải nghiệm tham gia trở nên hấp dẫn và thực tế hơn rất nhiều.
 
-Một điểm nổi bật khác là hai kỹ năng hỗ trợ của game show. Tôi nhận thấy việc sử dụng **Rủi ro tối thiểu** hay **Ngôi sao hi vọng** không chỉ phụ thuộc vào kiến thức, mà còn phụ thuộc vào khả năng đọc tình huống và đánh giá mức độ chắc chắn của đội tại từng thời điểm. Chính yếu tố này khiến cuộc thi mang tính chiến thuật rõ rệt, thay vì chỉ là trả lời câu hỏi theo kiểu ghi nhớ máy móc.
+Một điểm nổi bật khác là hai kỹ năng hỗ trợ của game show. Em nhận thấy việc sử dụng **Rủi ro tối thiểu** hay **Ngôi sao hi vọng** không chỉ phụ thuộc vào kiến thức, mà còn phụ thuộc vào khả năng đọc tình huống và đánh giá mức độ chắc chắn của đội tại từng thời điểm. Chính yếu tố này khiến cuộc thi mang tính chiến thuật rõ rệt, thay vì chỉ là trả lời câu hỏi theo kiểu ghi nhớ máy móc.
 
-Thông qua event này, tôi không chỉ ôn lại kiến thức Cloud mà còn học thêm về cách làm việc nhóm dưới áp lực, cách lắng nghe ý kiến đồng đội và cách đưa ra quyết định nhanh nhưng vẫn hợp lý. Đây là một trải nghiệm có giá trị, giúp tôi nhìn rõ hơn điểm mạnh và những kỹ năng mình cần tiếp tục cải thiện trong quá trình học tập cũng như thực tập.
+Thông qua event này, em không chỉ ôn lại kiến thức Cloud mà còn học thêm về cách làm việc nhóm dưới áp lực, cách lắng nghe ý kiến đồng đội và cách đưa ra quyết định nhanh nhưng vẫn hợp lý. Đây là một trải nghiệm có giá trị, giúp em nhìn rõ hơn điểm mạnh và những kỹ năng mình cần tiếp tục cải thiện trong quá trình học tập cũng như thực tập.
 
 ### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây
 
-> Tổng thể, sự kiện đã mang lại cho tôi một trải nghiệm vừa học thuật vừa thực tế, giúp tôi củng cố kiến thức Cloud, rèn luyện tư duy kiến trúc và nâng cao kỹ năng phối hợp trong môi trường làm việc nhóm.
+> Tổng thể, sự kiện đã mang lại cho em một trải nghiệm vừa học thuật vừa thực tế, giúp em củng cố kiến thức Cloud, rèn luyện tư duy kiến trúc và nâng cao kỹ năng phối hợp trong môi trường làm việc nhóm.
