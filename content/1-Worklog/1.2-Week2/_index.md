@@ -14,7 +14,6 @@ pre: " <b> 1.2. </b> "
 
 | Day | Tasks | Start Date | Completion Date | Resources |
 | :--- | :--- | :--- | :--- | :--- |
-| Fri | - Study Amazon VPC architecture and foundational concepts such as CIDR, public subnets, and private subnets.<br>- Clarify the role of each network component in an AWS deployment model. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Mon | - Build the base network layout:<br>&emsp; + Create subnets for different access scopes.<br>&emsp; + Configure Route Tables.<br>&emsp; + Attach Internet Gateway and review NAT Gateway placement. | 27/04/2026 | 27/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Tue | - Configure network protection layers:<br>&emsp; + Security Groups.<br>&emsp; + Network ACLs.<br>&emsp; + Key Pair preparation for secure instance access. | 28/04/2026 | 28/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Wed | - Launch Amazon EC2 instances into the configured subnets.<br>- Verify connectivity paths between instances and external access where appropriate. | 29/04/2026 | 29/04/2026 | https://cloudjourney.awsstudygroup.com/ |

@@ -20,6 +20,7 @@ pre: " <b> 1.1. </b> "
 | Tue | - Review the AWS global infrastructure and main service categories.<br>- Identify core services commonly used for compute, storage, database, networking, and monitoring. | 21/04/2026 | 21/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Wed | - Create and configure the AWS account environment.<br>- Outline a weekly study roadmap for the internship period.<br>- Review cost-control basics and complete introductory labs toward the initial learning target. | 22/04/2026 | 22/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Thu | - Continue the introductory lab exercises planned for the first week.<br>- Reinforce the initial understanding of cost awareness when using AWS resources. | 23/04/2026 | 23/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Study Amazon VPC architecture and foundational concepts such as CIDR, public subnets, and private subnets.<br>- Clarify the role of each network component in an AWS deployment model. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Results achieved in Week 1:
 * Built a clear overview of the AWS platform and its core service groups.
