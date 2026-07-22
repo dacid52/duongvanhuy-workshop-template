@@ -15,7 +15,6 @@ pre: " <b> 1.2. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | :--- | :--- | :--- | :--- | :--- |
-| 6 | - Nghiên cứu kiến trúc Amazon VPC và các khái niệm nền tảng như CIDR, public subnet và private subnet.<br>- Xác định vai trò của từng thành phần mạng trong mô hình triển khai trên AWS. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 2 | - Xây dựng bố cục mạng cơ bản:<br>&emsp; + Tạo các subnet theo từng phạm vi truy cập.<br>&emsp; + Cấu hình Route Table.<br>&emsp; + Kết nối Internet Gateway và xem xét vị trí triển khai NAT Gateway. | 27/04/2026 | 27/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 3 | - Thiết lập các lớp bảo vệ mạng:<br>&emsp; + Security Group.<br>&emsp; + Network ACL.<br>&emsp; + Chuẩn bị Key Pair để truy cập instance an toàn. | 28/04/2026 | 28/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 4 | - Khởi tạo các EC2 instance trên những subnet đã cấu hình.<br>- Kiểm tra đường kết nối giữa các instance và khả năng truy cập ra bên ngoài khi phù hợp. | 29/04/2026 | 29/04/2026 | https://cloudjourney.awsstudygroup.com/ |
