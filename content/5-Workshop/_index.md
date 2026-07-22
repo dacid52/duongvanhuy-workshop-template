@@ -42,7 +42,7 @@ The system is protected by multiple layers: **AWS WAF** on **CloudFront**, **Cog
 
 #### Architecture diagram
 
-![Architecture diagram](/images/5-Workshop/architecture.png)
+![Architecture diagram](/images/5-Workshop/architecture-v2.png)
 
 #### Booking flow (summary)
 

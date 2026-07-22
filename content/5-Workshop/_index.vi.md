@@ -42,7 +42,7 @@ Hệ thống được bảo vệ bởi nhiều lớp: **AWS WAF** gắn **CloudF
 
 #### Sơ đồ Architecture
 
-![Sơ đồ Architecture](/images/5-Workshop/architecture.png)
+![Sơ đồ Architecture](/images/5-Workshop/architecture-v2.png)
 
 #### Luồng đặt vé (tóm tắt)
 
