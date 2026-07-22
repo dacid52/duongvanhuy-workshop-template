@@ -20,6 +20,7 @@ pre: " <b> 1.12 </b> "
 | 4 | - Hoàn thiện tài liệu kỹ thuật và ghi chú triển khai.<br>- Sắp xếp lại các kết quả và minh chứng chính đã thu thập trong quá trình thực tập. | 08/07/2026 | 08/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 5 | - Soạn thảo và hoàn thiện nội dung báo cáo thực tập.<br>- Tổng hợp các kết quả chính và bài học rút ra từ quá trình triển khai. | 09/07/2026 | 09/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 6 | - Chuẩn bị dàn ý trình bày tổng kết và các ý chính cần thuyết minh.<br>- Xem lại toàn bộ kết quả thực tập trước khi nộp và trình bày. | 10/07/2026 | 10/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 7 | - Rà soát lần cuối nội dung báo cáo, tài liệu kỹ thuật và các minh chứng kèm theo.<br>- Hoàn tất giai đoạn tổng kết thực tập theo mốc kết thúc của phiếu tiến độ. | 11/07/2026 | 12/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được:
 * Hoàn thành việc rà soát triển khai và đánh giá kết quả thực hiện tổng thể.

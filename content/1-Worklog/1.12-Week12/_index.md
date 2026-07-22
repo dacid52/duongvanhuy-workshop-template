@@ -18,6 +18,7 @@ pre: " <b> 1.12. </b> "
 | Wed | - Complete the technical documentation and deployment notes.<br>- Organize the main evidence and findings collected during the internship. | 08/07/2026 | 08/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Thu | - Draft and refine the internship report content.<br>- Consolidate the key outcomes and lessons from the implementation process. | 09/07/2026 | 09/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 | Fri | - Prepare the final presentation outline and supporting talking points.<br>- Review the overall internship results before submission and presentation. | 10/07/2026 | 10/07/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Sat | - Perform a final review of the report, technical documents, and supporting evidence.<br>- Complete the internship wrap-up according to the end date stated in the progress report. | 11/07/2026 | 12/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Results achieved:
 * Finalized the deployment review and checked the overall implementation outcome.

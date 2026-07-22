@@ -18,7 +18,6 @@ pre: " <b> 1.1. </b> "
 | 3 | - Tìm hiểu hạ tầng toàn cầu của AWS và các nhóm dịch vụ cốt lõi.<br>- Ghi nhận vai trò của các dịch vụ tiêu biểu cho tính toán, lưu trữ, cơ sở dữ liệu, mạng và giám sát. | 21/04/2026 | 21/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 4 | - Tạo và cấu hình môi trường tài khoản AWS.<br>- Xây dựng lộ trình học tập theo tuần cho giai đoạn thực tập.<br>- Tìm hiểu nguyên tắc kiểm soát chi phí và thực hiện các bài lab nhập môn theo kế hoạch ban đầu. | 22/04/2026 | 22/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 | 5 | - Tiếp tục thực hiện các bài lab nhập môn theo kế hoạch tuần đầu.<br>- Củng cố hiểu biết ban đầu về kiểm soát chi phí khi sử dụng tài nguyên trên AWS. | 23/04/2026 | 23/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 6 | - Nghiên cứu kiến trúc Amazon VPC và các khái niệm nền tảng như CIDR, public subnet và private subnet.<br>- Xác định vai trò của từng thành phần mạng trong mô hình triển khai trên AWS. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 1:
 * Có cái nhìn tổng quan rõ ràng về nền tảng AWS và các nhóm dịch vụ chính.
