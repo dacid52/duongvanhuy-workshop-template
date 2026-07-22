@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 1"
-date: 2026-05-11
+date: 2026-04-17
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -15,9 +15,9 @@ pre: " <b> 1.1. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | :--- | :--- | :--- | :--- | :--- |
-| 4 | - Tìm hiểu hạ tầng toàn cầu của AWS và các nhóm dịch vụ cốt lõi.<br>- Ghi nhận vai trò của các dịch vụ tiêu biểu cho tính toán, lưu trữ, cơ sở dữ liệu, mạng và giám sát. | 22/04/2026 | 22/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 5 | - Tạo và cấu hình môi trường tài khoản AWS.<br>- Xây dựng lộ trình học tập theo tuần cho giai đoạn thực tập.<br>- Tìm hiểu nguyên tắc kiểm soát chi phí và thực hiện các bài lab nhập môn theo kế hoạch ban đầu. | 23/04/2026 | 23/04/2026 | https://cloudjourney.awsstudygroup.com/ |
-| 6 | - Tiếp tục thực hiện các bài lab nhập môn theo kế hoạch tuần đầu.<br>- Củng cố hiểu biết ban đầu về kiểm soát chi phí khi sử dụng tài nguyên trên AWS. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Tìm hiểu hạ tầng toàn cầu của AWS và các nhóm dịch vụ cốt lõi.<br>- Ghi nhận vai trò của các dịch vụ tiêu biểu cho tính toán, lưu trữ, cơ sở dữ liệu, mạng và giám sát. | 21/04/2026 | 21/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tạo và cấu hình môi trường tài khoản AWS.<br>- Xây dựng lộ trình học tập theo tuần cho giai đoạn thực tập.<br>- Tìm hiểu nguyên tắc kiểm soát chi phí và thực hiện các bài lab nhập môn theo kế hoạch ban đầu. | 22/04/2026 | 22/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Tiếp tục thực hiện các bài lab nhập môn theo kế hoạch tuần đầu.<br>- Củng cố hiểu biết ban đầu về kiểm soát chi phí khi sử dụng tài nguyên trên AWS. | 23/04/2026 | 23/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 1:
 * Có cái nhìn tổng quan rõ ràng về nền tảng AWS và các nhóm dịch vụ chính.

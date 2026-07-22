@@ -98,8 +98,3 @@ What impressed me the most was the way the program increased the difficulty over
 Another memorable aspect was the use of the two support skills. I realized that deciding when to use **Minimum Risk** or **Hope Star** was not only about knowledge, but also about reading the situation and judging the team’s confidence level at the right moment. This made the competition highly strategic instead of turning it into a purely memorization-based activity.
 
 Through this event, I not only reviewed Cloud knowledge but also learned more about teamwork under pressure, listening to teammates, and making quick but reasonable decisions. It was a meaningful experience that helped me better understand both my strengths and the skills I still need to improve during my study and internship journey.
-
-### Some Event Photos
-* Add your event photos here
-
-> Overall, the event gave me both an academic and practical experience, helping me reinforce Cloud knowledge, improve architectural thinking, and strengthen collaboration skills in a team-based environment.

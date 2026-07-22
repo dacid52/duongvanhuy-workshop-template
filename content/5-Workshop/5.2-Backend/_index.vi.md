@@ -98,10 +98,6 @@ Gọi `GET /health` trả JSON xác nhận backend AWS đang chạy và VNPay đ
 
 ![Health endpoint](/images/5-Workshop/5.4-Demo/health-api.png)
 
-{{% notice warning %}}
-**Quan trọng:** Không chạy `ampx sandbox delete` nếu muốn giữ dữ liệu phim và booking đã nhập. Sandbox delete sẽ xóa toàn bộ backend.
-{{% /notice %}}
-
 **Bước tiếp theo**
 
 → [5.3 Frontend & Deploy Hosting](../5.3-Frontend/)

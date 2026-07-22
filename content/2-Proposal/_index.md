@@ -1,6 +1,6 @@
 ---
 title: "Proposal"
-date: 2026-05-11
+date: 2026-05-05
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -9,80 +9,83 @@ pre: " <b> 2. </b> "
 ## AWS Serverless Solution for Real-time Booking Systems
 
 ### 1. Executive Summary
-The Movie Ticket Booking Platform is designed to handle large-scale ticket sales, supporting thousands of concurrent requests during blockbuster movie releases. The system utilizes an Event-Driven architecture, leveraging AWS Serverless services to ensure high availability, flexible scalability, and a seamless payment experience for users.
+The **Movie Ticket Booking Platform** handles concurrent ticket sales during peak showtimes. It uses an **event-driven serverless** stack on AWS (Amplify Gen 2, API Gateway, Lambda, DynamoDB, SQS), with Cognito, Amplify Hosting, WAF, and VNPay sandbox for availability, scale, and a smooth booking experience.
 
 ### 2. Problem Statement
-* **Current Challenges:** Traditional booking systems often face bottlenecks during traffic spikes, leading to race conditions (double-booking), high latency, or system crashes during peak hours.
-* **Proposed Solution:** Implement a Serverless architecture using Amazon API Gateway and AWS Lambda to handle business logic. Data integrity and synchronization are ensured through Amazon ElastiCache (Redis) for real-time Seat Locking and Amazon SQS for asynchronous order queueing.
-* **Benefits (ROI):** Reduced infrastructure costs via a "Pay-as-you-go" model. The system automatically scales to actual demand without maintaining physical servers. High reliability increases successful ticket conversion rates and enhances customer satisfaction.
+* **Current Challenges:** Traditional booking systems bottleneck under traffic spikes — race conditions (double-booking), high latency, or outages at peak hours.
+* **Proposed Solution:** API Gateway + Lambda for sync logic (seat lock, create booking); DynamoDB with TTL for seat state; SQS + worker Lambda for async orders; Cognito for identity; VNPay sandbox for payment.
+* **Benefits (ROI):** Pay-as-you-go, auto-scale with demand, lower fixed server cost; higher successful booking rate.
 
 ### 3. Solution Architecture
-The platform adopts a fully Serverless model to manage the entire process from seat selection to payment and ticket issuance.
+Flow: browse movies → select showtime → lock seats → booking → (optional) VNPay → e-ticket.
 
-![Movie Ticket Booking Platform](images/2-Proposal/edge_architecture.jpeg)
-
-![Movie Ticket Booking Platform](images/2-Proposal/platform_architecture.jpeg)
-
+![Movie Ticket Booking Platform Architecture](/images/2-Proposal/architecture.png)
 
 **AWS Services Used:**
-* **API Gateway:** Entry point for web/mobile booking requests.
-* **AWS Lambda:** Handles business logic for seat booking, payment, and confirmation.
-* **Amazon ElastiCache (Redis):** Manages real-time seat locking to prevent double-booking.
-* **Amazon SQS:** Queues booking requests to prevent system overload.
-* **Amazon RDS (Multi-AZ):** Stores user data, invoices, and screening schedules.
-* **Amazon Cognito:** Manages user authentication and security.
-* **Amazon SNS:** Sends confirmation notifications via Email/SMS.
+* **Amazon Cognito:** Sign-up / sign-in; `admin` group for the admin panel.
+* **Amazon API Gateway (HTTP API):** REST entry (`/health`, `/{proxy+}` → Lambda).
+* **AWS Lambda:** `booking-api` (sync) and `booking-worker` (queue consumer).
+* **Amazon DynamoDB:** Movies, showtimes, seats, bookings, tickets; seat locks via TTL.
+* **Amazon SQS + DLQ:** Order queue; failed messages go to the Dead Letter Queue.
+* **Amazon S3:** Movie posters / backend static assets.
+* **AWS Amplify Hosting + CloudFront:** React frontend deploy and CDN.
+* **AWS WAF:** Edge protection on CloudFront (managed rules).
+* **CloudWatch RUM:** Browser performance and error monitoring.
+* **VNPay sandbox:** Trial payment gateway (via Lambda).
 
 **Component Design:**
-* **Web Client (Next.js):** Acts as a Single Page Application (SPA), hosted on **Amazon S3** and distributed via **CloudFront** for low latency.
-* **API Layer:** **Cognito** handles authentication/JWT tokens; **API Gateway** acts as the secure gateway.
-* **Logic Layer:** **Lambda** functions perform booking, payment, and ticketing services.
-* **Storage & Cache:** **Redis** for distributed high-speed seat locking; **RDS** for relational data with automated failover.
-* **Async Processing:** **SQS** regulates traffic; **SNS** delivers immediate notifications.
-* **Observability:** **CloudWatch** and **X-Ray** for logging and tracing bottlenecks.
+* **Frontend:** React (Vite) — customer UI + Admin Panel.
+* **Auth:** Cognito JWT; admin RBAC via Cognito Groups.
+* **API & Compute:** HTTP API → booking-api Lambda; worker consumes SQS.
+* **Data:** DynamoDB (BookingStore single-table + Amplify Data models).
+* **Edge:** Amplify Hosting / CloudFront + WAF.
+* **Observability:** CloudWatch Logs, Metrics, RUM (Admin Traffic).
 
 ### 4. Technical Implementation
 * **Phases:**
-    1. Database modeling (Seat maps, schedules) and Serverless architecture design.
-    2. Development of business APIs (Authentication, Booking, Payment, Ticket).
-    3. Integration of Redis for seat locking and SQS for order processing.
-    4. Load testing and deployment on the AWS environment.
-* **Requirements:** * Use **AWS CDK** for Infrastructure as Code (IaC).
-    * Configure **Dead Letter Queues (DLQ)** for SQS to handle failed orders.
+    1. Amplify Gen 2 architecture and data model (movies, showtimes, seats, bookings).
+    2. Business APIs (auth, movies, lock seats, booking, VNPay).
+    3. DynamoDB TTL + SQS/DLQ + worker Lambda.
+    4. Amplify Hosting deploy, enable WAF; E2E tests on the live URL.
+* **Requirements:**
+    * Infrastructure as code via Amplify Gen 2 / CDK (`amplify/backend.ts`).
+    * SQS DLQ for failed orders.
+    * Do not commit `.env` / `amplify_outputs.json` to a public Git repo.
 
 ### 5. Implementation Roadmap
-* **Month 1:** Requirement analysis, architecture design, and data modeling.
-* **Month 2:** Backend development (Lambda) and Redis/SQS integration.
-* **Month 3:** Frontend development (Amplify/Next.js) and payment system integration.
-* **Month 4:** User Acceptance Testing (UAT), performance optimization, and go-live.
+* **Month 1:** Requirements, architecture, Cognito + React shell.
+* **Month 2:** Lambda / DynamoDB / SQS; seat lock and booking.
+* **Month 3:** VNPay, Admin, RUM; Amplify Hosting + WAF.
+* **Month 4:** UAT, Hugo workshop report, Mentor demo.
 
 ### 6. Budget Estimation
 
-Estimated monthly infrastructure costs for a startup-scale platform (10k - 50k MAU):
+Estimated monthly cost for lab / sandbox and low-traffic demo (Free Tier may apply):
 
 | AWS Service | Purpose | Estimated (USD/Month) |
 | :--- | :--- | :--- |
-| **Amazon Cognito** | User Management | 0.00 USD (Free Tier) |
-| **API Gateway** | Request Dispatching | ~1.50 USD |
-| **AWS Lambda** | Logic Processing | ~1.00 USD |
-| **S3 & CloudFront** | Static Assets & CDN | ~5.00 USD |
-| **Amazon RDS (Multi-AZ)** | Relational Database | ~35.00 - 45.00 USD |
-| **ElastiCache (Redis)** | Seat Locking Cache | ~15.00 - 20.00 USD |
-| **SQS & SNS** | Queues & Notifications | ~0.50 USD |
-| **CloudWatch & X-Ray** | Monitoring & Tracing | ~2.00 USD |
-| **TOTAL** | | **~55.00 - 75.00 USD/Month** |
+| **Amazon Cognito** | Auth | ~0 (Free Tier) |
+| **API Gateway** | HTTP API | ~1.00 |
+| **AWS Lambda** | booking-api + booking-worker | ~1.00 |
+| **Amazon DynamoDB** | Booking data (on-demand) | ~2.00 – 5.00 |
+| **Amazon SQS** | Queue + DLQ | ~0.50 |
+| **Amazon S3** | Posters / assets | ~1.00 |
+| **Amplify Hosting / CloudFront** | Frontend + CDN | ~1.00 – 5.00 |
+| **AWS WAF** | Web ACL (CloudFront) | per rules / requests |
+| **CloudWatch RUM** | Frontend monitoring | ~1.00 – 3.00 |
+| **TOTAL (estimate)** | | **~10 – 25 USD/Month** (lower in lab with Free Tier) |
 
-**Cost Optimization Notes:**
-* **Free Tier:** Many core services are covered under the **AWS Free Tier** for the first 12 months, significantly reducing real-world costs.
-* **Long-term Optimization:** Transition to **Aurora Serverless v2** for auto-scaling database capacity based on demand. Utilize **Reserved Instances** once traffic patterns stabilize to save 30-40%.
-* **Financial Model:** The **Pay-as-you-go** model ensures costs scale down during low-traffic periods.
+**Notes:**
+* Amplify sandbox is pay-as-you-go — clean up when demos are done.
+* No RDS / ElastiCache — avoids fixed instance cost vs classic stacks.
 
 ### 7. Risk Assessment
-* **System Overload:** Mitigated by SQS traffic regulation.
-* **Double-Booking:** Resolved by Redis seat locking mechanism.
-* **Payment Failures:** Isolated via DLQ and alerted to admins via SNS.
+* **API overload:** Mitigated by SQS order buffering.
+* **Double-booking:** DynamoDB seat lock with TTL; worker confirms booking.
+* **Payment / worker failures:** DLQ isolation; `/health` and CloudWatch Logs.
+* **Web attacks:** WAF on CloudFront + HTTPS + Cognito.
 
 ### 8. Expected Outcomes
-* **Performance:** Processing thousands of booking transactions per minute.
-* **Reliability:** 100% data accuracy for seat allocation.
-* **Scalability:** Auto-scaling to meet sudden traffic spikes.
+* **Performance:** Stable end-to-end booking on sandbox and live URL.
+* **Reliability:** No double-book in lock → booking → worker flow.
+* **Scalability:** Serverless scales with load; cost follows usage.

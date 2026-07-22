@@ -8,7 +8,7 @@ pre: " <b> 5.6. </b> "
 
 #### Tổng quan chi phí lab
 
-Sau khi triển khai và (tuỳ chọn) dọn sandbox, phần này tổng hợp **chi phí thực tế** trên AWS Billing. Tài khoản lab dùng **free plan / credits** — banner ghi *Your free plan account does not get charged*. Month-to-date rất thấp (ví dụ **$0.30**).
+Sau khi triển khai và (tuỳ chọn) dọn sandbox, phần này tổng hợp **chi phí thực tế** trên AWS Billing. Chi phí month-to-date khoảng **$7.82** (Budgets status OK; không phát hiện cost anomaly).
 
 ![Billing home — tổng quan chi phí](/images/5-Workshop/5.6-Cost/cost-overview.png)
 

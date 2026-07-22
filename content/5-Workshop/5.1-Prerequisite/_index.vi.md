@@ -53,9 +53,7 @@ Region trên Console phải khớp với AWS CLI (`aws configure` → Default re
 
 ![IAM Users / Permissions](/images/5-Workshop/5.1-Prerequisite/iam-permissions.png)
 
-{{% notice warning %}}
 Không chụp **Access Key Secret** đầy đủ. Chỉ chụp danh sách key (che Secret) hoặc màn Permissions.
-{{% /notice %}}
 
 Nếu cần tạo Access Key cho CLI:
 

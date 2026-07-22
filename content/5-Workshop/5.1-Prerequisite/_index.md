@@ -53,9 +53,7 @@ Console region must match AWS CLI (`aws configure` → Default region `ap-southe
 
 ![IAM Users / Permissions](/images/5-Workshop/5.1-Prerequisite/iam-permissions.png)
 
-{{% notice warning %}}
 Do not capture full **Access Key Secret** values. Show the key list (redacted) or the Permissions screen only.
-{{% /notice %}}
 
 To create an Access Key for CLI:
 

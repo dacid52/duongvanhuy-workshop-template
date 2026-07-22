@@ -8,7 +8,7 @@ pre: " <b> 5.6. </b> "
 
 #### Lab cost overview
 
-After deployment and (optional) sandbox cleanup, this section summarizes **actual cost** in AWS Billing. The lab account uses a **free plan / credits** — the banner states *Your free plan account does not get charged*. Month-to-date stays very low (e.g. **$0.30**).
+After deployment and (optional) sandbox cleanup, this section summarizes **actual cost** in AWS Billing. Month-to-date cost is about **$7.82** (Budgets status OK; no cost anomalies detected).
 
 ![Billing home — cost overview](/images/5-Workshop/5.6-Cost/cost-overview.png)
 

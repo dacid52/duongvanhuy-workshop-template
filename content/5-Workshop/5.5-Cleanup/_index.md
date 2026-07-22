@@ -6,11 +6,7 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-Cleaning up AWS resources after the workshop helps avoid unexpected charges when Free Tier ends.
-
-{{% notice warning %}}
-Clean up only when you **no longer need** sandbox data. Accidental deletion removes all movies, users, and bookings.
-{{% /notice %}}
+Cleaning up AWS resources after the workshop helps avoid unexpected charges when Free Tier ends. Run cleanup only when you no longer need sandbox data, because deletion removes movies, users, and bookings.
 
 #### Checklist
 

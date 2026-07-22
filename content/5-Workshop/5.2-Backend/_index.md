@@ -98,10 +98,6 @@ Calling `GET /health` returns JSON confirming the AWS backend is running and whe
 
 ![Health endpoint](/images/5-Workshop/5.4-Demo/health-api.png)
 
-{{% notice warning %}}
-**Important:** Do not run `ampx sandbox delete` if you want to keep imported movies and bookings. Sandbox delete removes the entire backend.
-{{% /notice %}}
-
 **Next step**
 
 → [5.3 Frontend & Hosting](../5.3-Frontend/)

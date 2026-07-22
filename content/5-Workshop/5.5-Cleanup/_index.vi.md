@@ -6,11 +6,7 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-Việc dọn dẹp tài nguyên AWS sau khi hoàn thành workshop giúp tránh phát sinh chi phí ngoài ý muốn khi hết Free Tier.
-
-{{% notice warning %}}
-Chỉ dọn dẹp khi **không còn cần** dữ liệu sandbox. Xóa nhầm sẽ mất toàn bộ phim, user và booking đã tạo.
-{{% /notice %}}
+Việc dọn dẹp tài nguyên AWS sau khi hoàn thành workshop giúp tránh phát sinh chi phí ngoài ý muốn khi hết Free Tier. Chỉ chạy bước này khi không còn cần dữ liệu sandbox, vì việc xóa sẽ mất phim, user và booking đã tạo.
 
 #### Checklist
 
